@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="SHURFA — Premium Lebanese lounge & dining. Explore our bilingual digital menu." />
+
+  <meta name="theme-color" content="#1a1e24" />
+
+  <title>SHURFA | Menu — شرفة</title>
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=Inter:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;500&display=swap" rel="stylesheet" />
+
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+
+    tailwind.config = {
+
+      theme: {
+
+        extend: {
+
+          colors: {
+
+            charcoal: '#1a1e24',
+
+            'charcoal-light': '#22262e',
+
+            accent: '#c2aa8c',
+
+            'accent-muted': '#a89074',
+
+            'accent-light': '#d4bc9f',
+
+            cream: '#f2ede6',
+
+            'gray-muted': '#9a9288',
+
+          },
+
+          fontFamily: {
+
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+
+            arabic: ['"Noto Sans Arabic"', 'Tahoma', 'sans-serif'],
+
+          },
+
+          boxShadow: {
+
+            accent: '0 0 20px rgba(194, 170, 140, 0.1)',
+
+          },
+
+        },
+
+      },
+
+    };
+
+  </script>
+
+
+
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body class="bg-charcoal text-cream font-sans antialiased">
+
+
+
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50">
+
+    <div class="header-backdrop border-b border-accent/15">
+
+      <div class="max-w-2xl mx-auto px-4 sm:px-6">
+
+
+
+        <div class="header-brand">
+
+          <img
+
+            src="SHURFA-gold.png"
+
+            alt="SHURFA شرفة"
+
+            class="shurfa-logo shurfa-logo--header"
+
+            width="92"
+
+            height="85"
+
+            decoding="async"
+
+          />
+
+          <h2 class="header-menu-title">
+            <span class="header-menu-line">MENU</span>
+          </h2>
+
+        </div>
+
+
+
+        <nav id="category-nav" aria-label="Menu categories">
+
+          <div class="flex gap-1 overflow-x-auto scrollbar-hide" role="tablist">
+
+            <!-- Nav buttons injected by app.js -->
+
+          </div>
+
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <main id="main-content" class="relative z-10 pb-12">
+
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+
+
+
+      <div id="menu-sections" class="space-y-6 sm:space-y-8">
+
+        <p class="order-hint" id="order-hint">
+          <span class="order-hint-icon" aria-hidden="true">+</span>
+          Tap any item to add it to your order list
+        </p>
+
+        <!-- Sections rendered by app.js -->
+
+      </div>
+
+
+
+      <footer class="mt-14 pt-8 border-t border-accent/15 text-center">
+
+        <img
+
+          src="SHURFA-gold.png"
+
+          alt="SHURFA شرفة"
+
+          class="shurfa-logo shurfa-logo--footer mx-auto"
+
+          width="80"
+
+          height="74"
+
+          decoding="async"
+
+        />
+
+        <p class="footer-tagline">Premium Lebanese Lounge</p>
+
+      </footer>
+
+    </div>
+
+  </main>
+
+
+
+  <button
+
+    id="back-to-top"
+
+    type="button"
+
+    class="fixed bottom-5 right-5 z-50 w-10 h-10 rounded-full bg-charcoal-light border border-accent/25 text-accent flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-accent hover:text-charcoal hover:border-accent"
+
+    aria-label="Back to top"
+
+  >
+
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 15l7-7 7 7"/>
+
+    </svg>
+
+  </button>
+
+
+
+  <!-- Order list FAB -->
+  <button
+    id="order-fab"
+    type="button"
+    class="order-fab"
+    aria-label="View your order list"
+    aria-expanded="false"
+    aria-controls="order-panel"
+  >
+    <svg class="order-fab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+    </svg>
+    <span id="order-fab-count" class="order-fab-count" hidden>0</span>
+  </button>
+
+  <!-- Order panel overlay -->
+  <div id="order-overlay" class="order-overlay" hidden aria-hidden="true"></div>
+
+  <aside
+    id="order-panel"
+    class="order-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="order-panel-title"
+    hidden
+  >
+    <header class="order-panel-header">
+      <div>
+        <h2 id="order-panel-title" class="order-panel-title">Your Order</h2>
+      </div>
+      <button type="button" id="order-panel-close" class="order-panel-close" aria-label="Close order list">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </header>
+
+    <div id="order-panel-body" class="order-panel-body">
+      <p id="order-empty" class="order-empty">Tap menu items to build your order. Your list is saved on this device.</p>
+      <ul id="order-list" class="order-list" role="list" hidden></ul>
+    </div>
+  </aside>
+
+
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
+
