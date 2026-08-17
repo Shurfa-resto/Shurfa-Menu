@@ -999,6 +999,45 @@ footer:hover .footer-tagline {
   opacity: 1;
 }
 
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1.15rem;
+  border: 1px solid rgba(194, 170, 140, 0.3);
+  border-radius: 999px;
+  color: var(--accent, #c2aa8c);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition:
+    color var(--duration-normal) var(--ease-smooth),
+    background var(--duration-normal) var(--ease-smooth),
+    border-color var(--duration-normal) var(--ease-smooth),
+    transform var(--duration-normal) var(--ease-smooth);
+}
+
+.footer-instagram-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+}
+
+.footer-instagram:hover {
+  color: #1a1e24;
+  background: var(--accent, #c2aa8c);
+  border-color: var(--accent, #c2aa8c);
+  transform: translateY(-1px);
+}
+
+.footer-instagram:focus-visible {
+  outline: 2px solid var(--accent, #c2aa8c);
+  outline-offset: 3px;
+}
+
 /* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   .menu-section,
